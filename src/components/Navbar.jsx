@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Button, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { Button, Drawer, List, ListItem, ListItemText, Box } from '@mui/material';
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -26,18 +26,8 @@ const Navbar = () => {
     <div>
       <AppBar position="static">
         <Toolbar>
-          {/* Menu icon for small screens */}
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={toggleDrawer(true)}
-            sx={{ mr: 2, display: { xs: 'block', sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-
-          {/* Clickable Title */}
+          
+          {/* Clickable Title - In the future I want to add logo here*/}
           <Typography
             variant="h6"
             component={Link} // Use Link as the component
@@ -47,8 +37,22 @@ const Navbar = () => {
             Dirtbag Running
           </Typography>
 
+          {/* adding a box to push the menu to the right when it appears, this seems to be unnecessary but keeping comment for later ref */}
+          {/*<Box sx={{ flexGrow:1 }} />*/}
+
+          {/* Menu icon for small screens */}
+          <IconButton
+            edge="end"
+            color="inherit"
+            aria-label="menu"
+            onClick={toggleDrawer(true)}
+            sx={{ mr: 2, display: { xs: 'block', sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+
           {/* Menu buttons for large screens */}
-          <div sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
+          <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
             {menuItems.map((item) => (
               <Button
                 key={item.text}
@@ -59,12 +63,12 @@ const Navbar = () => {
                 {item.text}
               </Button>
             ))}
-          </div>
+          </Box>
         </Toolbar>
       </AppBar>
 
       {/* Drawer for small screens */}
-      <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
+      <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
         <List>
           {menuItems.map((item) => (
             <ListItem
@@ -86,67 +90,3 @@ const Navbar = () => {
 export default Navbar;
 
 
-
-//import React from 'react';
-//import AppBar from '@mui/material/AppBar';
-//import Toolbar from '@mui/material/Toolbar';
-//import Typography from '@mui/material/Typography';
-//import IconButton from '@mui/material/IconButton';
-//import MenuIcon from '@mui/icons-material/Menu';
-//import { Button, Drawer, List, ListItem, ListItemText } from '@mui/material';
-//import { useState } from 'react';
-//import { Link } from "react-router-dom"
-//
-//const Navbar = () => {
-//  const [drawerOpen, setDrawerOpen] = useState(false);
-//
-//  const toggleDrawer = (open) => () => {
-//    setDrawerOpen(open);
-//  };
-//
-//  const menuItems = ['Training Plans', 'Posts', 'About', 'Services', 'Contact'];
-//
-//  return (
-//    <div>
-//      <AppBar position="static">
-//        <Toolbar>
-//          <IconButton
-//            edge="start"
-//            color="inherit"
-//            aria-label="menu"
-//            onClick={toggleDrawer(true)}
-//            sx={{ mr: 2, display: { xs: 'block', sm: 'none' } }}
-//          >
-//            <MenuIcon />
-//          </IconButton>
-//          
-//            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-//                
-//                DirtBag Running
-//                
-//            </Typography>
-//          
-//          <div sx={{ display: { xs: 'none', sm: 'block' } }}>
-//            {menuItems.map((item) => (
-//              <Button key={item} color="inherit">
-//                {item}
-//              </Button>
-//            ))}
-//          </div>
-//        </Toolbar>
-//      </AppBar>
-//      <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-//        <List>
-//          {menuItems.map((item) => (
-//            <ListItem button key={item} onClick={toggleDrawer(false)}>
-//              <ListItemText primary={item} />
-//            </ListItem>
-//          ))}
-//        </List>
-//      </Drawer>
-//    </div>
-//  );
-//};
-//
-//export default Navbar;
-//
