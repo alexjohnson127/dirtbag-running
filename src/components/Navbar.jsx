@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button, Drawer, List, ListItem, ListItemText, Box } from '@mui/material';
+import dblogo from '../assets/dblogo.png'
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -24,7 +25,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="static" sx={{backgroundColor:'#455557'}}>
         <Toolbar>
           
           {/* Clickable Title - In the future I want to add logo here*/}
@@ -34,8 +35,10 @@ const Navbar = () => {
             to="/"           // Route to home page
             sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }} // Style to look like plain text
           >
-            Dirtbag Running
+            <img src={dblogo} style={{width: '100px', flexGrow:1}}/>
+            
           </Typography>
+          
 
           {/* adding a box to push the menu to the right when it appears, this seems to be unnecessary but keeping comment for later ref */}
           {/*<Box sx={{ flexGrow:1 }} />*/}

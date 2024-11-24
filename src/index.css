@@ -1,0 +1,29 @@
+.question-container-one{
+    background-color: #E0C9BC;
+    color: black;
+    padding: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 0;
+}
+.question-container-two{
+    background-color: #77979C;
+    margin-top: 0;
+    padding: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.question{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.answer{
+    font-size: 1rem;
+    font-weight: 400;
+    color: black;
+    padding-left: 2rem;
+}
+
+/*#B5CFB7*/
