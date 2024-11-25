@@ -26,4 +26,98 @@
     padding-left: 2rem;
 }
 
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 768px) {
+    .calendar {
+      grid-template-columns: repeat(1, 1fr); /* Single column for mobile */
+    }
+  }
+
+  .dayWrapper{
+    margin: auto;
+    width: 10rem;
+    text-align: center;
+    border: #77979C solid 1px;
+    border-style: solid 2px;
+    border-radius: 3px;
+  }
+  .dayWrapper > h2{
+    margin-top: -4px;
+
+  }
+  .dayWrapper > h3{
+    margin-top: -16px;
+  }
+
+  /* General Form Styles */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #77979C;
+    font-family: 'Roboto', Arial, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-input,
+  .form-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-input:focus,
+  .form-select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+  }
+  
+  .form-checkbox {
+    margin-left: 8px;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: black;
+    background-color: #E0C9BC;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form-button:hover {
+    background-color: #ddbfaefb;
+  }
+  
+  
+
 /*#B5CFB7*/

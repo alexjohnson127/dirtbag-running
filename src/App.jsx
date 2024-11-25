@@ -18,6 +18,7 @@ function App() {
   return (
     <>
       <Router>
+        <div style={{height:'80px'}}></div>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

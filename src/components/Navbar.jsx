@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <AppBar position="static" sx={{backgroundColor:'#455557'}}>
+      <AppBar position="fixed" sx={{backgroundColor:'#455557'}}>
         <Toolbar>
           
           {/* Clickable Title - In the future I want to add logo here*/}
@@ -35,7 +35,7 @@ const Navbar = () => {
             to="/"           // Route to home page
             sx={{ flexGrow: 1, color: 'inherit', textDecoration: 'none' }} // Style to look like plain text
           >
-            <img src={dblogo} style={{width: '100px', flexGrow:1}}/>
+            <img src={dblogo} style={{width: '100px', marginTop:0, margin:'-10px',marginBottom:'-20px'}}/>
             
           </Typography>
           
