@@ -40,6 +40,7 @@
   .dayWrapper{
     margin: auto;
     width: 10rem;
+    height: 10rem;
     text-align: center;
     border: #77979C solid 1px;
     border-style: solid 2px;

@@ -85,7 +85,24 @@ export default function TrainingForm({ userInfo, onChange, handleSubmit }){
                 className="form-input"
               />
             </div>
-          )}    
+          )} 
+
+          <div className="form-group">
+            <label htmlFor="numberDays" className="form-label">
+              How many days per week do you want to run?
+            </label>
+            <input
+              type="number"
+              id="numberDays"
+              name="numberDays"
+              value={userInfo.numberDays}
+              onChange={onChange}
+              min="3"
+              max="7"
+              className="form-input"
+            />
+          </div>
+
           <div className="form-group">
             <label htmlFor="numWeeks" className="form-label">
               How many weeks long would you like your plan to be?
@@ -96,7 +113,7 @@ export default function TrainingForm({ userInfo, onChange, handleSubmit }){
               name="numWeeks"
               value={userInfo.numWeeks}
               onChange={onChange}
-              min="4"
+              min="8"
               max="52"
               className="form-input"
             />

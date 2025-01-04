@@ -7,7 +7,7 @@ export default function TrainingPlan({userInfo}){
     const daysOfWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
     const monthsOfYear = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
     let weekDistribution 
-    let beginnerRunWalkRatios = [.25, .5, .75]
+    let beginnerRunWalkRatios = ['30 seconds', '1 minute', '2 minute', '3 minute', '4 minute']
     const curYr = curDate.getFullYear()
     const curMo = monthsOfYear[curDate.getMonth()]
     const curDayInMo = curDate.getDate()
@@ -53,6 +53,7 @@ export default function TrainingPlan({userInfo}){
 
     for(let i=0; i < userInfo.numWeeks; i++){
         let weekMileage = userInfo.currentMileage
+        let weekAdjustedTotal = 0
         if(userInfo.increaseMileage){
             let adjustedMileage = weekMileage * Math.pow(1.1,i)
             weekMileage = adjustedMileage > userInfo.mileageCap ? userInfo.mileageCap : adjustedMileage
@@ -60,15 +61,26 @@ export default function TrainingPlan({userInfo}){
         //let weekMileage = userInfo.currentMileage + (userInfo.mileageCap-userInfo.currentMileage) * ((i + 1)/userInfo.numWeeks)
         for(let j=0; j < 7; j++){
             let tempDate = new Date(startDate)
+            let dayMileageNum = Math.floor(weekMileage*weekDistribution[j])
+            let dayMileage = `${dayMileageNum} miles easy`
+            weekAdjustedTotal += dayMileageNum
+
+            if (userInfo.furthestRun === '5k'){
+                dayMileage = i < 10 ? `${beginnerRunWalkRatios[Math.floor(i/2)]} run ${1} minute walk for ${20 + i*2} minutes`: `${Math.floor(userInfo.numberDays*3*weekDistribution[j])} mile continuous jog`
+            }
+            if (weekDistribution[j] === 0){
+                dayMileage = 'Rest Day'
+            }
             
             tempDate.setDate(tempDate.getDate() + i*7 + j)
             
 
             plan.push(
             <DayInfo 
-            key={String(tempDate.getDate())+tempDate.getMonth()+tempDate.getFullYear()} 
-            selectedDay={tempDate} 
-            workout={`${Math.floor(weekMileage*weekDistribution[j])} Miles`} 
+                key={String(tempDate.getDate())+tempDate.getMonth()+tempDate.getFullYear()} 
+                selectedDay={tempDate} 
+                workout={dayMileage} 
+                weekTotal={userInfo.furthestRun === '5k' ? null : weekAdjustedTotal}
             />
             )
         }

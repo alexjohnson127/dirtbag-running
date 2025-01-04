@@ -6,7 +6,7 @@ export default function About(){
             <div className='question-container-one'>
                 <h2 className='question'>Dude! What the H-E-Double Hockey Sticks is Dirtbag Running?</h2>
                 <p className='answer'>Dirtbag Running is a place to embrace the accessibility of running. Any human can run. All you need is some shoes on your feet. The goal of Dirtbag Running is to help runners of all ability levels reach their goals without draining their bank accounts. </p>
-                <p className='answer'>We offer fully customizable training plans. Click the training plan tab and fill out the dynamic form. The questions you answer are tailored to your individual goals. As you fill in more info about yourself, you will receive tailored questions to help us build you the best plan possible. Individualized coaching will also be offered in the future.</p>                
+                <p className='answer'>Click the training plan tab and fill out the dynamic form. The questions you answer are tailored to your individual goals. As you fill in more info about yourself, you will receive tailored questions to help build you the best plan possible. Individualized coaching will also be offered in the future.</p>                
             </div>
             <div className='question-container-two'>
                 <h2 className='question'>Okay, so then why is it named "Dirtbag Running"? What does it mean?</h2>
