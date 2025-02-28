@@ -1,4 +1,5 @@
 import TrainingForm from '../components/TrainingForm'
+import TrainingFormV2 from '../components/TrainingFormV2'
 import TrainingPlan from '../components/TrainingPlan'
 import { useState } from 'react'
 
@@ -8,11 +9,14 @@ export default function Training(){
     const [userInfo, setUserInfo] = useState(
         {
             submitted: false, //turns true when form is submitted
-            distance: 'fitness', //goal distance, 5k, 10k, marathon etc 
-            //experience: 'beginner', 
+            distance: '10k', //goal distance, 5k, 10k, marathon etc 
+            experience: '10k', 
+            goal: 'improve',
             currentMileage: 30,
             increaseMileage: false,
             mileageCap: 30,
+            decideMileageForMe: false,
+            runWalk: false,
             numberDays:5,
             furthestRun:'5k',
             justFinish: 'improve-time',
@@ -54,8 +58,10 @@ export default function Training(){
         */}
         {!userInfo.submitted &&
             <div className='question-container-one'>
-                <TrainingForm userInfo={userInfo} onChange={onChange} handleSubmit={handleSubmit}/>
+                <TrainingFormV2 userInfo={userInfo} onChange={onChange} handleSubmit={handleSubmit}/>
             </div>
+        }
+        {//<TrainingFormV2 userInfo={userInfo} onChange={onChange} handleSubmit={handleSubmit} />
         }
         {userInfo.submitted &&
         <TrainingPlan userInfo={userInfo} />

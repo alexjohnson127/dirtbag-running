@@ -12,6 +12,75 @@ export default function TrainingPlan({userInfo}){
     const curMo = monthsOfYear[curDate.getMonth()]
     const curDayInMo = curDate.getDate()
     const dayOfWeek = daysOfWeek[curDate.getDay()]
+    const repWorkouts = [
+        {
+            workoutTitle: "x 200m with 200m jog recovery",
+            repLength: .125
+
+        },
+        {
+            workoutTitle: "x 400m with 400m jog recovery" ,
+            repLength: .25
+            
+        },
+        {
+            workoutTitle: "x (200m, 200m, 400m) with equal jog recovery",
+            repLength: .5
+            
+        }
+    ]
+
+    const cruiseTempoWorkouts = [
+        {
+            workoutTitle: "x 1000m with 200m jog recovery",
+            repLength: .625,
+            recoveryDist: .125
+
+        },
+        {
+            workoutTitle: "x 1200m with 200m jog recovery" ,
+            repLength: .25,
+            recoveryDist: .125
+            
+        },
+        {
+            workoutTitle: "x 1600m with 200m jog recovery",
+            repLength: 1,
+            recoveryDist: .125
+            
+        }
+    ]
+
+    const continuousAeroWorkouts = [
+        {
+            workoutTitle: " mile continuous tempo",
+            repLength: 1
+        },
+        {
+            workoutTitle: " mile progression run",
+            repLength: 1
+        },
+        {
+            workoutTitle: " mile steady run",
+            repLength: 1
+        }
+    ]
+
+    const fartlekWorkouts = [
+        {
+            workoutTitle: " minutes of 30 seconds hard followed by 90 seconds easy"
+        },
+        {
+            workoutTitle: " minutes of 1 minute hard followed by 1 minute easy"
+        },
+        {
+            workoutTitle: " minutes of 3 minutes hard followed by 2 minutes easy"
+        },
+        {
+            workoutTitle: " minutes of 5 minute hard followed by 1 minute easy"
+        }
+    ]
+
     let workouts = []
 
     switch(Number(userInfo.numberDays)){
@@ -58,6 +127,16 @@ export default function TrainingPlan({userInfo}){
             let adjustedMileage = weekMileage * Math.pow(1.1,i)
             weekMileage = adjustedMileage > userInfo.mileageCap ? userInfo.mileageCap : adjustedMileage
         }
+
+        switch(userInfo.distance){
+            case 'fitness':
+                workouts.push(fartlekWorkouts[i % 3])
+                break
+            case '5k':
+                workouts.push(cruiseTempoWorkouts[i % 2])
+                break    
+        }
+        
         //let weekMileage = userInfo.currentMileage + (userInfo.mileageCap-userInfo.currentMileage) * ((i + 1)/userInfo.numWeeks)
         for(let j=0; j < 7; j++){
             let tempDate = new Date(startDate)
